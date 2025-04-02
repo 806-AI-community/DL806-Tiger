@@ -1,0 +1,69 @@
+% Documentation for front page:
+% https://github.com/martinhelso/mnfrontpage
+
+\documentclass[a4paper, british, 2, web]{memoir}
+% Add [final] to remove marginal notes
+
+\usepackage[fontset=mac]{ctex}
+
+\usepackage{style}       % Custom style
+\usepackage{mnfrontpage} % Front page
+\usepackage{kantlipsum}  % Dummy text
+\usepackage{placeins}
+
+\title{\textcolor{white}{深度学习新手入门杂谈}}
+\subtitle{\textcolor{white}{从零开始学习深度学习}}
+\author{\textcolor{white}{806人工智能部}}
+% \kind{第一版\hfill\the\year} % Optional
+
+\includeonly
+{
+    sections/abstract,
+    sections/acknowledgements,
+    sections/introduction,
+    sections/chapter2,
+    sections/chapter3,
+    sections/chapter4,
+    sections/appendixA,
+    sections/appendixB,
+}
+
+\begin{document}
+
+    \frontmatter        % Folios in Roman numerals, unnumbered chapters.
+
+    \mnfrontpage
+
+    % \include{sections/abstract}
+    % \include{sections/acknowledgements}
+
+    \cleartorecto
+    \microtypesetup{protrusion = false}
+    \tableofcontents    % Or \tableofcontents*
+    \cleartorecto
+    \listoffigures      % Or \listoffigures*
+    \cleartorecto
+    \listoftables       % Or \listoftables*
+    \microtypesetup{protrusion = true}
+
+    \mainmatter         % Folios in Arabic numerals, numbered chapters.
+
+    % \include{sections/introduction}
+
+    \part{The First Part}
+
+    \include{sections/chapter2}
+    % \include{sections/chapter3}
+    % \include{sections/chapter4}
+
+    \appendix           % "Chapter" is renamed "Appendix"
+    \appendixpage       % Similar to \part*{Appendices}, but appears in TOC.
+
+    % \include{sections/appendixA}
+    % \include{sections/appendixB}
+
+    \backmatter         % Folios in Arabic numerals, unnumbered chapters.
+
+    \printbibliography
+
+\end{document}
